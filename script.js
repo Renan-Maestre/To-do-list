@@ -1,13 +1,27 @@
 const localStoragekey = 'to-do-list-rm'
 
+function validarNovaTarefa()
+{
+    let values     =  JSON.parse(localStorage.getItem(localStoragekey) || "[]")
+    let inputValue = document.getElementById('input--new--tarefa').value
+    let existe     = values.find(x => x.name == inputValue)
+    return !existe ? false : true
+}
+
 function novatarefa(){
     let input = document.getElementById('input--new--tarefa')
+   
     //validadção
+
     if(!input.value)
     {
+        input.style.border = '3px solid red'
         alert('Digite algo para inserir a sua lista!')
     }
-    //else if()
+    else if(validarNovaTarefa())
+    {
+        alert('Já existe uma tarefa com essa descrição')
+    }
     else
     {
         //adicionando em LocalStorege
@@ -18,7 +32,8 @@ function novatarefa(){
         localStorage.setItem(localStoragekey,JSON.stringify(values))
         MostrarValores()
     }
-    
+    input.value = ''
+}
     function MostrarValores()
     {
         let values =  JSON.parse(localStorage.getItem(localStoragekey) || "[]")
@@ -30,7 +45,7 @@ function novatarefa(){
         }
     }
 
-    function removeIten(data)
+    function removeItem(data)
     {
         let values =  JSON.parse(localStorage.getItem(localStoragekey) || "[]")
         let index = values.findIndex(x => x.name == data)
@@ -41,4 +56,3 @@ function novatarefa(){
 
     MostrarValores()
 
-}
