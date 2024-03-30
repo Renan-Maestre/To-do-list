@@ -17,21 +17,71 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4rem;
+    gap: 5rem;
 
 }
 
+
+.inputGroup {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 1em 0 1em 0;
+    max-width: 190px;
+    position: relative;
+    color: #fff;
+  }
+  
+  .inputGroup input {
+    color: #fff;
+    font-size: 100%;
+    padding: 0.5em;
+    outline: none;
+    border: 2px solid rgb(255, 255, 255);
+    background-color: transparent;
+    border-radius: 20px;
+    width: 100%;
+  }
+  
+  .inputGroup label {
+  
+    font-size: 100%;
+    position: absolute;
+    left: 0;
+    padding: 0.5em;
+    margin-left: 0.5em;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    color: rgb(255, 255, 255);
+  }
+  
+  .inputGroup :is(input:focus, input:valid)~label {
+    border-radius: 1rem;
+    transform: translateY(-50%) scale(.9);
+    margin: 0em;
+    margin-left: 1.3em;
+    padding: 0.3em;
+    background-color: var(--color-dark);
+  }
+  
+  .inputGroup :is(input:focus, input:valid) {
+    border-color: rgb(110, 55, 199);
+  }
+
+
+
+
 .content{
     display: flex;
-    flex-direction: column;
-    gap: 4rem;
+    flex-direction:column;
+    gap: 7rem;
+    justify-content: space-between;
 
 }
 
 .content--add--iten{
     display: flex;
     align-items: center;
-    gap: 1rem;
+    justify-content: space-between;
+    gap: 5rem;
     flex-wrap: wrap;
 }
 
@@ -51,7 +101,7 @@ body{
 }
 
 #btn--new--tarefa{
-    background-color: var(--color-dark2);
+    background-color: rgb(95, 31, 180);
     color: (var(--color-white));
     border-radius: 50px;
     width: 50px;
@@ -61,7 +111,7 @@ body{
 }
 
 #btn--new--tarefa:hover{
-    background-color: var(--color-dark3);
+    background-color: rgb(84, 21, 136);
 }
 
 #to-do-list{
@@ -82,3 +132,12 @@ body{
 
 
 }
+
+#btn-ok{
+    border-radius: 1rem;
+    background-color: blue;
+    }
+
+    #btn-ok:hover{
+        background-color: rgb(41, 39, 158);
+    }
